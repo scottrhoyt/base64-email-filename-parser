@@ -22,7 +22,7 @@ module.exports = function(fileName, acceptedExtensions) {
     throw new Error('The file name did not have 3 components.');
   }
 
-  if (acceptedExtensions.isArray == false) {
+  if (Array.isArray(acceptedExtensions) == false) {
     acceptedExtensions = [acceptedExtensions];
   }
 
