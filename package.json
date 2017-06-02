@@ -11,5 +11,11 @@
     "email"
   ],
   "author": "Scott Hoyt",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0"
+  }
 }
