@@ -19,7 +19,7 @@ module.exports = function(fileName, acceptedExtensions) {
   var components = decodedFileName.split('.');
 
   if (components.length != 3) {
-    throw new Error('The file name did not have 3 components.');
+    throw new Error('The file name does not have 3 components.');
   }
 
   if (Array.isArray(acceptedExtensions) == false) {
