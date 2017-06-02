@@ -14,6 +14,12 @@ describe('emailExtractor', () => {
     assert.deepEqual(expected, emailExtractor(encoded, ['txt', 'dat']));
   });
 
+  it('should decode an email as the first part of a fileName properly with any extension', () => {
+    var encoded = 'am9obi5kb2VAZW1haWwuY29t.1.txt';
+    var expected = { email: 'john.doe@email.com', id: '1', extension: 'txt' };
+    assert.deepEqual(expected, emailExtractor(encoded, '*'));
+  });
+
   it('should throw an error if the string cannot be decoded', () => {
     var encoded = 'am9obi5kb2VAZW1haWwuY29*(.1.txt';
     assert.throws(()=>emailExtractor(encoded, 'txt'));

@@ -10,10 +10,11 @@ var validator = require("email-validator");
  * an error.
  *
  * @param {string} fileName - The filename to parse
- * @param {string|string[]} acceptedExtensions - The accepted file extension or an array of accepted extensions
+ * @param {string|string[]} acceptedExtensions - The accepted file extension or an array of accepted extensions. Pass '*' to match any extension.
  * @return {Object} - An object containing the `email`, `id`, and `extension` of the filename.
  */
 module.exports = function(fileName, acceptedExtensions) {
+  var matchAnyExtension = acceptedExtensions == '*';
   var acceptedExtensions = acceptedExtensions || [];
   var decodedFileName =  decodeURIComponent(fileName.replace(/\+/g, " ")); //the object may have spaces
   var components = decodedFileName.split('.');
@@ -26,7 +27,7 @@ module.exports = function(fileName, acceptedExtensions) {
     acceptedExtensions = [acceptedExtensions];
   }
 
-  if (acceptedExtensions.includes(components[2]) == false) {
+  if (acceptedExtensions.includes(components[2]) == false && !matchAnyExtension) {
     throw new Error('The file name does not have an accepted extension.');
   }
 
