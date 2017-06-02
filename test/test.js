@@ -1,5 +1,5 @@
 var assert = require('assert');
-var emailExtractor = require('../src/lib/emailExtractor');
+var emailExtractor = require('../src/index');
 
 describe('emailExtractor', () => {
   it('should decode an email properly', () => {

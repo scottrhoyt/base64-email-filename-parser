@@ -1,6 +1,6 @@
 {
   "name": "base64-email-extractor",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A microlibrary for extracting a base64 encoded email address from the first path component of a filename. ",
   "main": "index.js",
   "scripts": {
