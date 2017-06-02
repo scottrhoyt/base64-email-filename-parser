@@ -27,5 +27,5 @@ module.exports = function(fileName, acceptedExtensions) {
     throw new Error('The decoded string is not an email.');
   }
 
-  return emailDecoded;
+  return { email: emailDecoded, number: components[1], extension: components[2] };
 }

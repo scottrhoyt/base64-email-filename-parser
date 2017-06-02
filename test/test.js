@@ -4,14 +4,14 @@ var emailExtractor = require('../src/index');
 describe('emailExtractor', () => {
   it('should decode an email as the first part of a fileName properly with one accepted extension', () => {
     var encoded = 'am9obi5kb2VAZW1haWwuY29t.1.txt';
-    var expected = 'john.doe@email.com';
-    assert.equal(expected, emailExtractor(encoded, 'txt'));
+    var expected = { email: 'john.doe@email.com', number: '1', extension: 'txt' };
+    assert.deepEqual(expected, emailExtractor(encoded, 'txt'));
   });
 
   it('should decode an email as the first part of a fileName properly with an array of accepted extensions', () => {
     var encoded = 'am9obi5kb2VAZW1haWwuY29t.1.txt';
-    var expected = 'john.doe@email.com';
-    assert.equal(expected, emailExtractor(encoded, ['txt', 'dat']));
+    var expected = { email: 'john.doe@email.com', number: '1', extension: 'txt' };
+    assert.deepEqual(expected, emailExtractor(encoded, ['txt', 'dat']));
   });
 
   it('should throw an error if the string cannot be decoded', () => {
