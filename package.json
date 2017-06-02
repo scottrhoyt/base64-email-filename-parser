@@ -16,6 +16,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "base-64": "^0.1.0"
+    "base-64": "^0.1.0",
+    "email-validator": "^1.0.7"
   }
 }

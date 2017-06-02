@@ -1,14 +1,6 @@
 var assert = require('assert');
 var emailExtractor = require('../src/lib/emailExtractor');
 
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it('should return -1 when the value is not present', function() {
-//       assert.equal(-1, [1,2,3].indexOf(4));
-//     });
-//   });
-// });
-
 describe('emailExtractor', () => {
   it('should decode an email properly', () => {
     var encoded = 'am9obi5kb2VAZW1haWwuY29t';
@@ -24,6 +16,26 @@ describe('emailExtractor', () => {
 
   it('should throw an error if the string cannot be decoded', () => {
     var encoded = 'am9obi5kb2VAZW1haWwuY29*(';
+    assert.throws(()=>emailExtractor(encoded));
+  });
+
+  it('should throw an error if the decoded string is not an email', () => {
+    var encoded = 'dGhpc2lzbm90YW5lbWFpbA==';
+    assert.throws(()=>emailExtractor(encoded));
+  });
+
+  it('should throw an error if passed an empty string', () => {
+    var encoded = '';
+    assert.throws(()=>emailExtractor(encoded));
+  });
+
+  it('should throw an error if passed null', () => {
+    var encoded = null;
+    assert.throws(()=>emailExtractor(encoded));
+  });
+
+  it('should throw an error if passed undefined', () => {
+    var encoded = undefined;
     assert.throws(()=>emailExtractor(encoded));
   });
 });
