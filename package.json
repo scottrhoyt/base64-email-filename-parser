@@ -2,6 +2,7 @@
   "name": "base64-email-filename-parser",
   "version": "0.1.0",
   "description": "A microlibrary for parsing and validating a filename of the form <base64-email>.<id>.<extension>",
+  "repository": "https://github.com/scottrhoyt/base64-email-filename-parser.git",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
