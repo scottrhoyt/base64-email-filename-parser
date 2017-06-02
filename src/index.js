@@ -3,6 +3,16 @@
 var base64 = require('base-64');
 var validator = require("email-validator");
 
+/**
+ * Parses and validates a filename of the form: <base64-email>.<id>.<extension>
+ *
+ * If the filename cannot be parsed, decoded, or validated, the function throws
+ * an error.
+ *
+ * @param {string} fileName - The filename to parse
+ * @param {string|string[]} acceptedExtensions - The accepted file extension or an array of accepted extensions
+ * @return {Object} - An object containing the `email`, `id`, and `extension` of the filename.
+ */
 module.exports = function(fileName, acceptedExtensions) {
   var acceptedExtensions = acceptedExtensions || [];
   var decodedFileName =  decodeURIComponent(fileName.replace(/\+/g, " ")); //the object may have spaces
